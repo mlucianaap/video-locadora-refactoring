@@ -1,7 +1,8 @@
 import java.util.Enumeration;
 
 public class HtmlStatement extends Statement {
-	public String value(Enumeration rentals, Customer customer) {
+	@Override
+	public String statement(Enumeration rentals, Customer customer) {
 		rentals = customer.getRentals();
 		String result = "<H1>Rentals for <EM>" + customer.getName() +
 				"</EM></H1><P>\n";

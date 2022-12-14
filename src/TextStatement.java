@@ -1,7 +1,8 @@
 import java.util.Enumeration;
 
 public class TextStatement extends Statement {
-	public String value(Enumeration rentals, Customer customer) {
+	@Override
+	public String statement(Enumeration rentals, Customer customer) {
 		rentals = customer.getRentals();
 		String result = "Rental Record for " + customer.getName() +
 				"\n";
