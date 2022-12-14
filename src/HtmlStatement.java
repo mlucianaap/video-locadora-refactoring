@@ -1,9 +1,9 @@
 import java.util.Enumeration;
 
 public class HtmlStatement extends Statement {
-	public String value(Customer aCustomer) {
-		Enumeration rentals = aCustomer.getRentals();
-		String result = "<H1>Rentals for <EM>" + aCustomer.getName() +
+	public String value(Enumeration rentals, Customer customer) {
+		rentals = customer.getRentals();
+		String result = "<H1>Rentals for <EM>" + customer.getName() +
 				"</EM></H1><P>\n";
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
@@ -13,9 +13,9 @@ public class HtmlStatement extends Statement {
 		}
 		//add footer lines
 		result += "<P>You owe <EM>" +
-		String.valueOf(aCustomer.getTotalCharge()) + "</EM><P>\n";
+		String.valueOf(customer.getTotalCharge()) + "</EM><P>\n";
 		result += "On this rental you earned <EM>" + 
-		String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
+		String.valueOf(customer.getTotalFrequentRenterPoints()) +
 		"</EM> frequent renter points<P>";
 		return result;
 	}
